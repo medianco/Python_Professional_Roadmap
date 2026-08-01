@@ -41,13 +41,11 @@ from typing import Any
 Python is a dynamically typed language.
 
 This means:
-
 - You do not need to declare variable types.
 - Python automatically determines the type.
 - A variable can reference objects of different types.
 
 Example:
-
 value = 100
 
 Python automatically knows that value is an integer.
@@ -91,7 +89,6 @@ Python provides three numeric types:
 def integer_demo() -> None:
     """
     Demonstrates integer (int) data type.
-
     Integers represent whole numbers without decimals.
     """
 
@@ -117,7 +114,6 @@ def integer_demo() -> None:
 def float_demo() -> None:
     """
     Demonstrates floating point numbers.
-
     Floats represent decimal values.
     """
 
@@ -143,7 +139,6 @@ def float_demo() -> None:
 def complex_demo() -> None:
     """
     Demonstrates complex numbers.
-
     Complex numbers contain:
     - Real part
     - Imaginary part
@@ -169,7 +164,6 @@ def complex_demo() -> None:
 def string_demo() -> None:
     """
     Demonstrates string (str) data type.
-
     Strings represent sequences of characters.
     """
 
@@ -196,7 +190,6 @@ def string_demo() -> None:
 def boolean_demo() -> None:
     """
     Demonstrates Boolean values.
-
     Boolean values have only two states:
 
     True
@@ -223,7 +216,6 @@ def boolean_demo() -> None:
 def none_demo() -> None:
     """
     Demonstrates NoneType.
-
     None represents the absence of a value.
     """
 
@@ -269,7 +261,6 @@ def type_checking_demo() -> None:
 def isinstance_demo() -> None:
     """
     Demonstrates the isinstance() function.
-
     isinstance() checks whether an object belongs to a specific data type.
     """
 
@@ -360,7 +351,6 @@ def list_demo() -> None:
 def tuple_demo() -> None:
     """
     Demonstrates tuple data type.
-
     Tuples are:
     - Ordered
     - Immutable
@@ -391,7 +381,6 @@ def tuple_demo() -> None:
 def range_demo() -> None:
     """
     Demonstrates range data type.
-
     Range generates a sequence of numbers.
     """
 
@@ -412,7 +401,6 @@ def range_demo() -> None:
 
 """
 Set Types:
-
 1. set
 2. frozenset
 
@@ -486,7 +474,6 @@ def frozenset_demo() -> None:
 def dictionary_demo() -> None:
     """
     Demonstrates dictionary data type.
-
     Dictionaries store data as:
 
     key : value
@@ -532,11 +519,9 @@ Python provides three binary types:
 # Bytes Type
 # -----------------------------------------------------------------------------
 
-
 def bytes_demo() -> None:
     """
     Demonstrates bytes data type.
-
     Bytes are immutable binary sequences.
     """
 
@@ -558,7 +543,6 @@ def bytes_demo() -> None:
 def bytearray_demo() -> None:
     """
     Demonstrates bytearray.
-
     Bytearray is a mutable version of bytes.
     """
 
@@ -586,7 +570,6 @@ def bytearray_demo() -> None:
 def memoryview_demo() -> None:
     """
     Demonstrates memoryview.
-
     Memoryview provides access to the internal
     memory representation of binary data.
     """
@@ -673,7 +656,6 @@ Examples:
 def immutable_demo() -> None:
     """
     Demonstrates immutable objects.
-
     Strings are immutable.
     Any modification creates a new object.
     """
@@ -695,7 +677,6 @@ def immutable_demo() -> None:
 def mutable_demo() -> None:
     """
     Demonstrates mutable objects.
-
     Lists can be modified without creating a new object.
     """
 
@@ -776,18 +757,13 @@ def network_engineering_example() -> None:
     ip_address: str = "10.10.10.1"
 
     interfaces: list[str] = [
-
         "GigabitEthernet0/1",
         "GigabitEthernet0/2"
-
     ]
 
     vlan_id: int = 100
-
     uptime_hours: float = 245.5
-
     ssh_enabled: bool = True
-
 
     print(f"Device       : {device_name}")
     print(f"IP Address   : {ip_address}")
@@ -814,11 +790,9 @@ def cybersecurity_example() -> None:
     target: str = "192.168.1.50"
 
     open_ports: list[int] = [
-
         22,
         80,
         443
-
     ]
 
 
@@ -851,18 +825,13 @@ def best_practices_demo() -> None:
     print("\nBest Practices")
     print("-" * 40)
 
-
     # Good naming
 
     network_device_count: int = 50
-
     firewall_status: bool = True
 
-
     print(network_device_count)
-
     print(firewall_status)
-
 
     """
     Recommendations:
@@ -888,7 +857,6 @@ def common_mistakes_demo() -> None:
     print("\nCommon Mistakes")
     print("-" * 40)
 
-
     """
     Mistake 1:
     Treating string as number.
@@ -898,7 +866,6 @@ def common_mistakes_demo() -> None:
     age + 5
 
     This causes TypeError.
-    
     Mistake 2:
     Modifying immutable objects.
     
@@ -909,7 +876,6 @@ def common_mistakes_demo() -> None:
     Ignoring data validation.
 
     """
-
 
 # =============================================================================
 # SECTION 19 - Coding Exercises
