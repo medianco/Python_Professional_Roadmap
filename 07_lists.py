@@ -1164,7 +1164,21 @@ zip()
 
 Comprehension:
 
-[item for item in list]
+[item for item in list] 
+
+Method          Description
+------------------------------------------
+append()        Add one item
+extend()        Add multiple items
+insert()        Insert at position
+remove()        Remove first occurrence
+pop()           Remove by index
+clear()         Remove all items
+sort()          Sort list
+reverse()       Reverse list
+copy()          Copy list
+count()         Count occurrences
+index()         Return item index
 """
 
 
