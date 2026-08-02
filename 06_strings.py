@@ -950,3 +950,20 @@ def main() -> None:
 if __name__ == "__main__":
     main()
 
+"""
+What's Next?
+
+In the next lesson you will learn:
+
+✔ Creating Lists
+✔ Accessing List Elements
+✔ List Methods
+✔ Nested Lists
+✔ List Comprehension
+✔ Network Automation Examples
+✔ Cybersecurity Examples
+
+Next File:
+
+07_lists.py
+"""
