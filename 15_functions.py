@@ -883,7 +883,7 @@ def interface_demo() -> None:
 # =============================================================================
 
 
-def scan_port(
+def scan_network_port(
     host: str,
     port: int
 ) -> str:
@@ -911,7 +911,7 @@ def port_scan_demo() -> None:
     for port in ports:
 
         print(
-            scan_port(
+            scan_network_port(
                 "192.168.1.10",
                 port
             )
