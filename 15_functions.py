@@ -734,7 +734,7 @@ def run_part_three() -> None:
 # =============================================================================
 
 
-def connect_device(
+def connect_network_device(
     hostname: str,
     ip_address: str,
     username: str
@@ -761,7 +761,7 @@ def connection_demo() -> None:
     print("\nNetwork Device Connection")
     print("-" * 40)
 
-    status: bool = connect_device(
+    status: bool = connect_network_device(
         "R1",
         "192.168.1.1",
         "admin"
