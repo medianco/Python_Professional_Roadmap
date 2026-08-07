@@ -2,7 +2,7 @@
 ===============================================================================
 File        : 05_operators.py
 Author      : Mohammed AL-Dubai
-Course      : Python Basics
+Course      : Python Professional Roadmap
 Lesson      : Operators
 
 Description:

@@ -2,7 +2,7 @@
 ===============================================================================
 File        : 10_dictionaries.py
 Author      : Mohammed AL-Dubai
-Course      : Python Basics
+Course      : Python Professional Roadmap
 Lesson      : Dictionaries
 
 Description:

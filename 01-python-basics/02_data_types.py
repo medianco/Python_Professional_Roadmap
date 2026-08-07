@@ -2,7 +2,7 @@
 ===============================================================================
 File        : 02_data_types.py
 Author      : Mohammed AL-Dubai
-Course      : Python Basics
+Course      : Python Professional Roadmap
 Lesson      : Python Data Types
 
 Description:

@@ -2,7 +2,7 @@
 ===============================================================================
 File        : 06_strings.py
 Author      : Mohammed AL-Dubai
-Course      : Python Basics
+Course      : Python Professional Roadmap
 Lesson      : Strings
 
 Description:
@@ -275,7 +275,7 @@ def strip_demo() -> None:
     print("\nRemoving Spaces")
     print("-" * 40)
 
-    text: str = "   Python Basics   "
+    text: str = "   Python Professional Roadmap   "
 
     print(f"Original : '{text}'")
     print(f"strip()  : '{text.strip()}'")

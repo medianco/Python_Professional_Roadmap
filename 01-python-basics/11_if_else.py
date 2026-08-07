@@ -2,7 +2,7 @@
 ===============================================================================
 File        : 11_if_else.py
 Author      : Mohammed AL-Dubai
-Course      : Python Basics
+Course      : Python Professional Roadmap
 Lesson      : Conditional Statements (if, elif, else)
 
 Description:

@@ -2,7 +2,7 @@
 ===============================================================================
 File        : 09_sets.py
 Author      : Mohammed AL-Dubai
-Course      : Python Basics
+Course      : Python Professional Roadmap
 Lesson      : Sets
 
 Description:

@@ -2,7 +2,7 @@
 ===============================================================================
 File        : 12_match_case.py
 Author      : Mohammed AL-Dubai
-Course      : Python Basics
+Course      : Python Professional Roadmap
 Lesson      : Match Case (Pattern Matching)
 
 Description:

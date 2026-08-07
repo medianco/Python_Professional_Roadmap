@@ -2,7 +2,7 @@
 ===============================================================================
 File        : 03_type_casting.py
 Author      : Mohammed AL-Dubai
-Course      : Python Basics
+Course      : Python Professional Roadmap
 Lesson      : Type Casting (Type Conversion)
 
 Description:

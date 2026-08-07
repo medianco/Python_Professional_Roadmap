@@ -2,7 +2,7 @@
 ===============================================================================
 File        : 01_variables.py
 Author      : Mohammed AL-Dubai
-Course      : Python Basics
+Course      : Python Professional Roadmap
 Lesson      : Variables
 
 Description:
