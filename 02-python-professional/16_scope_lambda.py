@@ -749,7 +749,7 @@ def network_closure_demo() -> None:
     print("\nNetwork Monitoring Closure")
     print("-" * 40)
 
-   monitor = create_monitor_counter()
+    monitor = create_monitor_counter()
 
     print(monitor())
     print(monitor())
