@@ -720,7 +720,7 @@ def independent_closures_demo() -> None:
 # =============================================================================
 
 
-def create_network_monitor() -> callable:
+def create_monitor_counter() -> callable:
     """
     Creates a simple network monitoring counter.
     """
@@ -749,7 +749,7 @@ def network_closure_demo() -> None:
     print("\nNetwork Monitoring Closure")
     print("-" * 40)
 
-    monitor = create_network_monitor()
+   monitor = create_monitor_counter()
 
     print(monitor())
     print(monitor())
