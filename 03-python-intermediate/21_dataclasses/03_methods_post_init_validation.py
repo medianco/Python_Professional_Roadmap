@@ -479,26 +479,3 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
-
-"""
-# Use /mnt/data root to avoid the previously blocked directory.
-path = Path("/mnt/data/03_methods_post_init_validation.py")
-path.write_text(code, encoding="utf-8")
-compile(code, str(path), "exec")
-result = subprocess.run(
-    ["python3", str(path)],
-    capture_output=True,
-    text=True,
-    check=True,
-)
-
-print(f"Created: {path}")
-print("Syntax validation: PASSED")
-print("Runtime smoke test: PASSED")
-print("Output preview:")
-print(result.stdout[-500:])
-print(f"Download: sandbox:{path}")
-print("Note: move this file into your 21_dataclasses folder.")
-eval_result = subprocess.run(["python3", "-m", "py_compile", str(path)], capture_output=True, text=True)
-print("py_compile: PASSED")
-"""
