@@ -8,6 +8,14 @@ This lesson demonstrates:
 - Alternative Constructors
 
 Author: Mohammed AL-Dubai
+
+┌──────────────────────┬──────────┬────────────────────────────┐
+│ Method               │ Parameter│ Purpose                    │
+├──────────────────────┼──────────┼────────────────────────────┤
+│ Instance Method      │ self     │ Object-specific behavior   │
+│ Class Method         │ cls      │ Class-level behavior       │
+│ Static Method        │ None     │ Independent utility logic  │
+└──────────────────────┴──────────┴────────────────────────────┘
 """
 
 
