@@ -96,6 +96,16 @@ if __name__ == "__main__":
     router3 = NetworkDevice.from_string(
         "R3,192.168.1.3"
     )
+    
+    try:
+        router4 = NetworkDevice.from_string(
+            "R4"
+        )
+
+    except ValueError as error:
+        print(f"Error: {error}")
+
+
 
     test_ips = [
         "192.168.1.1",
