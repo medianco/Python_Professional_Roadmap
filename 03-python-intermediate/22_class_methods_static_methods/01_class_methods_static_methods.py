@@ -38,7 +38,9 @@ class NetworkDevice:
     def get_device_count(cls) -> int:
         """Return the number of created network devices."""
         return cls.device_count
-
+        
+        
+    '''
     @classmethod
     def from_string(cls, data: str) -> "NetworkDevice":
         """Create a NetworkDevice from a comma-separated string."""
@@ -46,6 +48,20 @@ class NetworkDevice:
         hostname, ip_address = data.split(",")
     
         return cls(hostname, ip_address)
+    '''
+    
+    @classmethod
+    def from_string(cls, data: str) -> "NetworkDevice":
+        """Create a NetworkDevice from a comma-separated string."""
+        try:
+            hostname, ip_address = data.split(",")
+    
+        except ValueError as error:
+            raise ValueError(
+                "Expected format: 'hostname,ip_address'"
+            ) from error
+    
+        return cls(hostname.strip(), ip_address.strip())
 
     @staticmethod
     def is_valid_ip(ip_address: str) -> bool:
