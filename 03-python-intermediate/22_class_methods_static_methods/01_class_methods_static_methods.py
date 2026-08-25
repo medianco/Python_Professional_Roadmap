@@ -4,8 +4,13 @@ Lesson 22: Class Methods & Static Methods
 This lesson demonstrates:
 - Instance Methods
 - Class Methods
+- cls
 - Static Methods
 - Alternative Constructors
+- IPv4 Validation
+- Edge Cases
+- Type Hints
+- Exception Handling
 
 Author: Mohammed AL-Dubai
 
