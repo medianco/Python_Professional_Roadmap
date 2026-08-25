@@ -24,23 +24,23 @@ class NetworkDevice:
     
     device_count = 0
 
-    def __init__(self, hostname, ip_address):
+    def __init__(self, hostname: str, ip_address: str) -> None:
         self.hostname = hostname
         self.ip_address = ip_address
         
         NetworkDevice.device_count += 1
 
-    def show_info(self):
+    def show_info(self) -> str:
         """Return basic information about the device."""
         return f"{self.hostname} - {self.ip_address}"
         
     @classmethod
-    def get_device_count(cls):
+    def get_device_count(cls) -> int:
         """Return the number of created network devices."""
         return cls.device_count
 
     @classmethod
-    def from_string(cls, data):
+    def from_string(cls, data: str) -> "NetworkDevice":
         """Create a NetworkDevice from a comma-separated string."""
         """ Alternative Constructor """
         hostname, ip_address = data.split(",")
@@ -48,7 +48,7 @@ class NetworkDevice:
         return cls(hostname, ip_address)
 
     @staticmethod
-    def is_valid_ip(ip_address):
+    def is_valid_ip(ip_address: str) -> bool:
         """Return True if the given IPv4 address is valid."""
         parts = ip_address.split(".")
     
@@ -81,7 +81,19 @@ if __name__ == "__main__":
         "R3,192.168.1.3"
     )
 
-
+    test_ips = [
+        "192.168.1.1",
+        "10.0.0.1",
+        "172.16.0.1",
+        "255.255.255.255",
+        "0.0.0.0",
+        "192.168.1.300",
+        "192.168.1",
+        "192.168.1.1.5",
+        "abc.def.1.1",
+        "192.168.-1.1",
+        "",
+    ]
     
     print(router1.show_info())
     print(router2.show_info())
@@ -91,6 +103,7 @@ if __name__ == "__main__":
         f"Total devices: {NetworkDevice.get_device_count()}"
     )
     
+    print('=' * 30)
     print(
         NetworkDevice.is_valid_ip("192.168.1.1")
     )
@@ -102,3 +115,7 @@ if __name__ == "__main__":
     print(
     NetworkDevice.is_valid_ip("abc.def.1.1")
     )
+    
+    for ip in test_ips:
+        result = NetworkDevice.is_valid_ip(ip)
+        print(f"{ip!r:20} -> {result}")
