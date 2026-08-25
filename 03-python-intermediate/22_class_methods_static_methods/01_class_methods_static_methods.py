@@ -61,7 +61,16 @@ class NetworkDevice:
                 "Expected format: 'hostname,ip_address'"
             ) from error
     
-        return cls(hostname.strip(), ip_address.strip())
+        hostname = hostname.strip()
+        ip_address = ip_address.strip()
+    
+        if not cls.is_valid_ip(ip_address):
+            raise ValueError(
+                f"Invalid IPv4 address: {ip_address}"
+            )
+    
+        return cls(hostname, ip_address)
+
 
     @staticmethod
     def is_valid_ip(ip_address: str) -> bool:
@@ -105,7 +114,25 @@ if __name__ == "__main__":
     except ValueError as error:
         print(f"Error: {error}")
 
+    router5 = NetworkDevice.from_string(
+        "R5,192.168.1.5"
+    )
+    
+    try:
+        NetworkDevice.from_string(
+            "R6,192.168.1.300"
+        )
+    
+    except ValueError as error:
+        print(f"Error: {error}")
 
+    try:
+        NetworkDevice.from_string(
+            "R7"
+        )
+    
+    except ValueError as error:
+        print(f"Error: {error}")
 
     test_ips = [
         "192.168.1.1",
@@ -124,6 +151,7 @@ if __name__ == "__main__":
     print(router1.show_info())
     print(router2.show_info())
     print(router3.show_info())
+    print(router5.show_info())
 
     print(
         f"Total devices: {NetworkDevice.get_device_count()}"
