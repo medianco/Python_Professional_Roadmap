@@ -7,6 +7,12 @@ This lesson demonstrates:
 - Inheritance
 - Method Reuse
 
+NetworkDevice                          
+     │
+ ┌───┴─────────────┐
+ │                 │
+CiscoDevice   JuniperDevice
+
 Author: Mohammed AL-Dubai
 """
 
@@ -21,27 +27,47 @@ class NetworkDevice:
     def show_info(self) -> str:
         """Return basic information about the device."""
         return f"{self.hostname} - {self.ip_address}"
+        
+    @staticmethod
+    def is_valid_ip(ip_address: str) -> bool:
+        """Return True if the given IPv4 address is valid."""
+        parts = ip_address.split(".")
+    
+        if len(parts) != 4:
+            return False
+    
+        for part in parts:
+            if not part.isdigit():
+                return False
+    
+            if not 0 <= int(part) <= 255:
+                return False
+    
+        return True    
+
 
     @classmethod
-    def from_string(cls, data: str) -> "NetworkDevice":
+    def from_string(
+        cls,
+        data: str,
+    ) -> "NetworkDevice":
         """Create a network device from a comma-separated string."""
-        try:
-            hostname, ip_address = data.split(",")
+        parts = [part.strip() for part in data.split(",")]
     
-        except ValueError as error:
+        if len(parts) < 2:
             raise ValueError(
-                "Expected format: 'hostname,ip_address'"
-            ) from error
+                "Expected at least: 'hostname,ip_address'"
+            )
     
-        hostname = hostname.strip()
-        ip_address = ip_address.strip()
+        hostname = parts[0]
+        ip_address = parts[1]
     
         if not cls.is_valid_ip(ip_address):
             raise ValueError(
                 f"Invalid IPv4 address: {ip_address}"
             )
     
-        return cls(hostname, ip_address)
+        return cls(*parts)   
 
 class CiscoDevice(NetworkDevice):
     """Represent a Cisco network device."""
@@ -120,9 +146,23 @@ if __name__ == "__main__":
     device = NetworkDevice.from_string(
         "SW1,192.168.1.10"
     )
+    
+    cisco = CiscoDevice.from_string(
+    "R3,192.168.1.3,Catalyst 9300,IOS-XE 17.12"
+    )
+    
+    juniper = JuniperDevice.from_string(
+    "R4,192.168.1.4,MX204,Junos 23.4"
+    )
 
+    print(juniper.show_info())
+    print(type(juniper).__name__)
+    
     print(device.show_info())
-
+    
+    print(cisco.show_info())
+    print(type(cisco).__name__)
+    
     print(router.show_info())
     print(router2.show_info())
     
@@ -135,7 +175,9 @@ if __name__ == "__main__":
     
     print(isinstance(router2, JuniperDevice))
     print(isinstance(router2, NetworkDevice))
-        
+    
+
+    
     #print(router.hostname)
     #print(router.ip_address)
     #print(router.model)
