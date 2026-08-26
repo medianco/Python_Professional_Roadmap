@@ -14,7 +14,7 @@ This lesson demonstrates:
 - Exception Handling
 - Method Reuse
 
-NetworkDevice                          
+NetworkDevice
      │
  ┌───┴─────────────┐
  │                 │
@@ -27,58 +27,93 @@ Author: Mohammed AL-Dubai
 class NetworkDevice:
     """Represent a basic network device."""
 
+    # Constructor of the parent class
     def __init__(self, hostname: str, ip_address: str) -> None:
         self.hostname = hostname
         self.ip_address = ip_address
 
+    # Return basic information about the network device
     def show_info(self) -> str:
         """Return basic information about the device."""
         return f"{self.hostname} - {self.ip_address}"
-        
+
+    # Static method:
+    # It does not need access to self or cls.
+    # It only validates the given IPv4 address.
     @staticmethod
     def is_valid_ip(ip_address: str) -> bool:
         """Return True if the given IPv4 address is valid."""
+
+        # Split the IP address into four parts
         parts = ip_address.split(".")
-    
+
+        # An IPv4 address must contain exactly four parts
         if len(parts) != 4:
             return False
-    
+
+        # Check every part of the IP address
         for part in parts:
+
+            # Each part must contain only digits
             if not part.isdigit():
                 return False
-    
+
+            # Each IPv4 octet must be between 0 and 255
             if not 0 <= int(part) <= 255:
                 return False
-    
-        return True    
 
+        # All validation checks passed
+        return True
 
+    # Class method:
+    # cls refers to the class that calls this method.
+    #
+    # This allows the method to work with:
+    # NetworkDevice
+    # CiscoDevice
+    # JuniperDevice
     @classmethod
     def from_string(
         cls,
         data: str,
     ) -> "NetworkDevice":
         """Create a network device from a comma-separated string."""
+
+        # Split the input string by commas
+        # and remove unnecessary spaces.
         parts = [part.strip() for part in data.split(",")]
-    
+
+        # At least hostname and IP address are required
         if len(parts) < 2:
             raise ValueError(
                 "Expected at least: 'hostname,ip_address'"
             )
-    
+
+        # Extract hostname
         hostname = parts[0]
+
+        # Extract IP address
         ip_address = parts[1]
-    
+
+        # Validate the IPv4 address
         if not cls.is_valid_ip(ip_address):
             raise ValueError(
                 f"Invalid IPv4 address: {ip_address}"
             )
-    
-        return cls(*parts)   
+
+        # Create an object using the class that called from_string()
+        #
+        # For example:
+        # NetworkDevice.from_string() -> NetworkDevice
+        # CiscoDevice.from_string()   -> CiscoDevice
+        # JuniperDevice.from_string() -> JuniperDevice
+        return cls(*parts)
+
 
 class CiscoDevice(NetworkDevice):
     """Represent a Cisco network device."""
 
+    # Constructor of the Cisco child class
     def __init__(
         self,
         hostname: str,
@@ -86,27 +121,39 @@ class CiscoDevice(NetworkDevice):
         model: str,
         os_version: str,
     ) -> None:
+
+        # Call the constructor of the parent class
+        # to initialize hostname and ip_address.
         super().__init__(
             hostname,
             ip_address,
         )
 
+        # Cisco-specific attributes
         self.model = model
         self.os_version = os_version
-    
+
+    # Method overriding:
+    # We replace the parent's show_info()
+    # with a Cisco-specific implementation.
     def show_info(self) -> str:
         """Return Cisco device information."""
+
+        # Reuse the parent's show_info() method
         base_info = super().show_info()
+
+        # Add Cisco-specific information
         return (
             f"{base_info} - "
             f"{self.model} - "
             f"{self.os_version}"
         )
-    
-    
+
+
 class JuniperDevice(NetworkDevice):
     """Represent a Juniper network device."""
 
+    # Constructor of the Juniper child class
     def __init__(
         self,
         hostname: str,
@@ -114,78 +161,121 @@ class JuniperDevice(NetworkDevice):
         model: str,
         os_version: str,
     ) -> None:
+
+        # Call the constructor of the parent class
+        # to initialize hostname and ip_address.
         super().__init__(
             hostname,
             ip_address,
         )
 
+        # Juniper-specific attributes
         self.model = model
         self.os_version = os_version
 
+    # Method overriding:
+    # We provide a Juniper-specific version of show_info().
     def show_info(self) -> str:
         """Return Juniper device information."""
+
+        # Reuse the parent's show_info() method
         base_info = super().show_info()
 
+        # Add Juniper-specific information
         return (
             f"{base_info} - "
             f"{self.model} - "
             f"{self.os_version}"
-        )        
+        )
 
 
+# This block runs only when this file is executed directly.
+# It will not run when the file is imported as a module.
 if __name__ == "__main__":
 
+    # Create a CiscoDevice object
     router = CiscoDevice(
         "R1",
         "192.168.1.1",
         "Catalyst 9300",
         "IOS-XE 17.12",
     )
-    
-    
+
+    # Create a JuniperDevice object
     router2 = JuniperDevice(
         "R2",
         "192.168.1.2",
         "MX204",
         "Junos 23.4",
     )
-    
+
+    # Create a NetworkDevice object using the
+    # alternative constructor from_string()
     device = NetworkDevice.from_string(
         "SW1,192.168.1.10"
     )
-    
+
+    # Create a CiscoDevice using from_string()
+    #
+    # Because CiscoDevice inherits from NetworkDevice,
+    # it can use the parent's class method.
     cisco = CiscoDevice.from_string(
-    "R3,192.168.1.3,Catalyst 9300,IOS-XE 17.12"
-    )
-    
-    juniper = JuniperDevice.from_string(
-    "R4,192.168.1.4,MX204,Junos 23.4"
+        "R3,192.168.1.3,Catalyst 9300,IOS-XE 17.12"
     )
 
+    # Create a JuniperDevice using from_string()
+    juniper = JuniperDevice.from_string(
+        "R4,192.168.1.4,MX204,Junos 23.4"
+    )
+
+    # Display Juniper information
     print(juniper.show_info())
+
+    # Display the class name of the object
     print(type(juniper).__name__)
-    
+
+    # Display basic NetworkDevice information
     print(device.show_info())
-    
+
+    # Display Cisco information
     print(cisco.show_info())
+
+    # Display the class name
     print(type(cisco).__name__)
-    
+
+    # Display Cisco router information
     print(router.show_info())
+
+    # Display Juniper router information
     print(router2.show_info())
-    
-    
+
+    # Display the actual class names
     print(type(router).__name__)
     print(type(router2).__name__)
-    
-    print(isinstance(router, CiscoDevice))
-    print(isinstance(router, NetworkDevice))
-    
-    print(isinstance(router2, JuniperDevice))
-    print(isinstance(router2, NetworkDevice))
-    
 
-    
-    #print(router.hostname)
-    #print(router.ip_address)
-    #print(router.model)
-    #print(router.os_version)
+    # Check whether router is a CiscoDevice
+    print(isinstance(router, CiscoDevice))
+
+    # Check whether router is also a NetworkDevice
+    # because CiscoDevice inherits from NetworkDevice.
+    print(isinstance(router, NetworkDevice))
+
+    # Check whether router2 is a JuniperDevice
+    print(isinstance(router2, JuniperDevice))
+
+    # Check whether router2 is also a NetworkDevice
+    # because JuniperDevice inherits from NetworkDevice.
+    print(isinstance(router2, NetworkDevice))
+
+
+    # -------------------------------------------------
+    # Direct attribute access
+    # -------------------------------------------------
+    #
+    # These attributes are inherited or defined
+    # inside CiscoDevice.
+    #
+    # print(router.hostname)
+    # print(router.ip_address)
+    # print(router.model)
+    # print(router.os_version)
