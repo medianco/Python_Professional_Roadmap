@@ -5,6 +5,13 @@ This lesson demonstrates:
 - Parent Classes
 - Child Classes
 - Inheritance
+- super().__init__()
+- Method Overriding
+- super().show_info()
+- cls
+- Alternative Constructor — from_string()
+- IPv4 Validation
+- Exception Handling
 - Method Reuse
 
 NetworkDevice                          
