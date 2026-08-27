@@ -1,3 +1,4 @@
+from collections.abc import Sequence
 """
 Lesson 23: Inheritance
 
@@ -15,7 +16,7 @@ This lesson demonstrates:
 - Method Reuse
 - Polymorphism = One Interface, Multiple Implementations
 
-              display_devices()
+             display_devices()
                      │
                      ▼
               NetworkDevice
@@ -27,6 +28,7 @@ This lesson demonstrates:
  show_info()      show_info()   show_info()
 
 Author: Mohammed AL-Dubai
+
 """
 
 
@@ -193,12 +195,50 @@ class JuniperDevice(NetworkDevice):
             f"{self.model} - "
             f"{self.os_version}"
         )
+        
+class AristaDevice(NetworkDevice):
+    """Represent an Arista network device."""
+
+    def __init__(
+        self,
+        hostname: str,
+        ip_address: str,
+        model: str,
+        os_version: str,
+    ) -> None:
+        super().__init__(
+            hostname,
+            ip_address,
+        )
+
+        self.model = model
+        self.os_version = os_version
+
+    def show_info(self) -> str:
+        """Return Arista device information."""
+        base_info = super().show_info()
+
+        return (
+            f"{base_info} - "
+            f"{self.model} - "
+            f"{self.os_version}"
+        )
+        
 
 def display_devices(devices: list[NetworkDevice]) -> None:
     """Display information for a collection of network devices."""
     
     for device in devices:
         print(device.show_info())
+        
+def display_devices_Sequence(
+    devices: Sequence[NetworkDevice],
+) -> None:
+    """Display information for a sequence of network devices."""
+
+    for device in devices:
+        print(device.show_info())
+
 
 # This block runs only when this file is executed directly.
 # It will not run when the file is imported as a module.
@@ -250,6 +290,10 @@ if __name__ == "__main__":
     CiscoDevice.from_string(
         "SW01,192.168.1.10,Catalyst 9200,IOS-XE 17.9"
     ),
+    
+        AristaDevice.from_string(
+        "SW02,192.168.1.20,7050X3,EOS 4.31"
+    ),
     ]
     
     display_devices(devices)
@@ -275,8 +319,22 @@ if __name__ == "__main__":
             f"{device.show_info()}"
         )
 
-    print("=" * 65)
-  
+    print("*" * 65)
+    
+    test_devices = (
+    CiscoDevice.from_string(
+        "R10,10.0.0.1,Catalyst 9300,IOS-XE 17.12"
+    ),
+    JuniperDevice.from_string(
+        "R20,10.0.0.2,MX204,Junos 23.4"
+    ),
+    AristaDevice.from_string(
+        "SW10,10.0.0.10,7050X3,EOS 4.31"
+    ),
+    )
+
+    display_devices_Sequence(test_devices)
+    print("*" * 65)
     # Display Juniper information
     print(juniper.show_info())
 
