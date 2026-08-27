@@ -15,13 +15,16 @@ This lesson demonstrates:
 - Method Reuse
 - Polymorphism = One Interface, Multiple Implementations
 
-                    NetworkDevice
-                          │
-              ┌───────────┴───────────┐
-              │                       │
-        CiscoDevice             JuniperDevice
-              │                       │
-        show_info()              show_info()
+              display_devices()
+                     │
+                     ▼
+              NetworkDevice
+                     │
+       ┌─────────────┼─────────────┐
+       ▼             ▼             ▼
+     Cisco         Juniper       Arista
+       │             │             │
+ show_info()      show_info()   show_info()
 
 Author: Mohammed AL-Dubai
 """
