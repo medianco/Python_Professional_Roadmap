@@ -3,18 +3,25 @@ from collections.abc import Sequence
 Lesson 23: Inheritance
 
 This lesson demonstrates:
-- Parent Classes
-- Child Classes
-- Inheritance
-- super().__init__()
-- Method Overriding
-- super().show_info()
-- cls
-- Alternative Constructor — from_string()
-- IPv4 Validation
-- Exception Handling
-- Method Reuse
-- Polymorphism = One Interface, Multiple Implementations
+
+Inheritance
+    │
+    ├── Parent / Child Classes
+    ├── Method Reuse
+    ├── Method Overriding
+    ├── super().__init__()
+    ├── super().show_info()
+    ├── Class Methods + cls
+    ├── Alternative Constructors — from_string()
+    ├── Static Methods
+    ├── IPv4 Validation
+    ├── Exception Handling
+    ├── Polymorphism = One Interface, Multiple Implementations
+    ├── Type Hints
+    └── Multiple Vendors
+         ├── Cisco
+         ├── Juniper
+         └── Arista
 
              display_devices()
                      │
