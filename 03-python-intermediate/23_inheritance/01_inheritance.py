@@ -230,7 +230,34 @@ if __name__ == "__main__":
     juniper = JuniperDevice.from_string(
         "R4,192.168.1.4,MX204,Junos 23.4"
     )
+    
+    
+    devices = [
+    CiscoDevice.from_string(
+        "R01,192.168.1.1,Catalyst 9300,IOS-XE 17.12"
+    ),
+    JuniperDevice.from_string(
+        "R02,192.168.1.2,MX204,Junos 23.4"
+    ),
+    CiscoDevice.from_string(
+        "SW01,192.168.1.10,Catalyst 9200,IOS-XE 17.9"
+    ),
+    ]
+    
+    for device in devices:
+        print(device.show_info())
+        
+        
+    print("=" * 65)
+    
+    for device in devices:
+        print(
+            f"{type(device).__name__}: "
+            f"{device.show_info()}"
+        )
 
+    print("=" * 65)
+  
     # Display Juniper information
     print(juniper.show_info())
 
