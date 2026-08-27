@@ -191,6 +191,11 @@ class JuniperDevice(NetworkDevice):
             f"{self.os_version}"
         )
 
+def display_devices(devices: list[NetworkDevice]) -> None:
+    """Display information for a collection of network devices."""
+    
+    for device in devices:
+        print(device.show_info())
 
 # This block runs only when this file is executed directly.
 # It will not run when the file is imported as a module.
@@ -244,10 +249,21 @@ if __name__ == "__main__":
     ),
     ]
     
+    display_devices(devices)
+    print("=" * 65)
+    
+    devices.append(
+    JuniperDevice.from_string(
+        "R03,192.168.1.3,SRX345,Junos 23.4"
+    )
+    )
+    
+    display_devices(devices)
+    print("=" * 65)
+    
     for device in devices:
         print(device.show_info())
-        
-        
+            
     print("=" * 65)
     
     for device in devices:
