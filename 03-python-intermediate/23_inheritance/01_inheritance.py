@@ -13,12 +13,15 @@ This lesson demonstrates:
 - IPv4 Validation
 - Exception Handling
 - Method Reuse
+- Polymorphism = One Interface, Multiple Implementations
 
-NetworkDevice
-     │
- ┌───┴─────────────┐
- │                 │
-CiscoDevice   JuniperDevice
+                    NetworkDevice
+                          │
+              ┌───────────┴───────────┐
+              │                       │
+        CiscoDevice             JuniperDevice
+              │                       │
+        show_info()              show_info()
 
 Author: Mohammed AL-Dubai
 """
