@@ -6,6 +6,24 @@ This lesson demonstrates:
 - Multiple Parent Classes
 - Method Reuse
 - Basic MRO
+
+            NetworkDevice
+                │
+            ┌───┴─────────────┐
+            │                 │
+        CiscoFeature   SecurityFeature
+            │                 │
+            └───────┬─────────┘
+                    │
+            EnterpriseDevice
+
+        NetworkDevice        MonitoringFeature
+            │                     │
+            └────────┬────────────┘
+                     │
+               ManagedDevice
+
+Author: Mohammed AL-Dubai
 """
 
 
