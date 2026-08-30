@@ -5,7 +5,7 @@ This lesson demonstrates:
 - Multiple Inheritance
 - Multiple Parent Classes
 - Method Reuse
-- Basic MRO
+- Basic MRO (Method Resolution Order)
 
             NetworkDevice
                 │
