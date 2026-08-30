@@ -5,7 +5,7 @@ This lesson demonstrates:
 - Multiple Inheritance
 - Multiple Parent Classes
 - Method Reuse
-- Basic MRO (Method Resolution Order)
+- Basic MRO
 
             NetworkDevice
                 │
@@ -101,7 +101,17 @@ if __name__ == "__main__":
     device = ManagedDevice()
     
     enterprise_device = EnterpriseDevice()
+    
+    print("MRO:")
+    for cls in EnterpriseDevice.mro():
+        print(cls.__name__)
 
+    print(
+        EnterpriseDevice.__mro__
+        == tuple(EnterpriseDevice.mro())
+    )
+    
+    print('=' * 100)
     print(enterprise_device.show_status())
     
     print(EnterpriseDevice.__mro__)
