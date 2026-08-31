@@ -16,6 +16,9 @@ This lesson demonstrates:
             └───────┬─────────┘
                     │
             EnterpriseDevice
+            
+EnterpriseDevice is a CiscoFeature + SecurityFeature
+It is called (is-a) relationship.           
 
         NetworkDevice        MonitoringFeature
             │                     │
@@ -45,6 +48,18 @@ NetworkDevice
       ↓
 + EnterpriseDevice
 
+1️⃣ Multiple Inheritance
+    EnterpriseDevice is a CiscoFeature + SecurityFeature
+    It is called (is-a) relationship.  
+
+2️⃣ Composition
+    EnterpriseDevice has a SecurityManager.
+    EnterpriseDevice
+       │
+       └── security
+              │
+              └── SecurityManager
+    
 Author: Mohammed AL-Dubai
 """
 
