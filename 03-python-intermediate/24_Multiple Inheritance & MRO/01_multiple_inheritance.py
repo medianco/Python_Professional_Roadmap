@@ -6,8 +6,6 @@ This lesson demonstrates:
 - Multiple Parent Classes
 - Method Reuse
 - Basic MRO (Method Resolution Order)
-- MRO = order of method lookup/call.
-  Return composition can appear in reverse because each method wraps the result returned by super
 
             NetworkDevice
                 │
@@ -24,6 +22,28 @@ This lesson demonstrates:
             └────────┬────────────┘
                      │
                ManagedDevice
+
+MRO / Method Lookup
+────────────────────
+
+EnterpriseDevice
+       ↓
+CiscoFeature
+       ↓
+SecurityFeature
+       ↓
+NetworkDevice
+
+- MRO = order of method lookup/call.
+  Return composition can appear in reverse because each method wraps the result returned by super
+  
+NetworkDevice
+      ↓
++ SecurityFeature
+      ↓
++ CiscoFeature
+      ↓
++ EnterpriseDevice
 
 Author: Mohammed AL-Dubai
 """
