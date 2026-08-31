@@ -6,6 +6,8 @@ This lesson demonstrates:
 - Multiple Parent Classes
 - Method Reuse
 - Basic MRO (Method Resolution Order)
+- MRO = order of method lookup/call.
+  Return composition can appear in reverse because each method wraps the result returned by super
 
             NetworkDevice
                 │
@@ -38,6 +40,10 @@ class NetworkDevice:
         """Return network device status."""
         return "NetworkDevice status"
 
+    def describe(self) -> str:
+        """Return basic device description."""
+        return "NetworkDevice"
+
 class CiscoFeature(NetworkDevice):
     """Provide Cisco-specific functionality."""
 
@@ -49,8 +55,13 @@ class CiscoFeature(NetworkDevice):
         """Return Cisco status."""
 
         next_status = super().show_status()
-
         return f"CiscoFeature + {next_status}"
+
+    def describe(self) -> str:
+        """Return Cisco feature description."""
+
+        description = super().describe()
+        return f"{description} + CiscoFeature"
 
 class MonitoringFeature:
     """Provide monitoring functionality."""
@@ -76,6 +87,12 @@ class SecurityFeature(NetworkDevice):
         next_status = super().show_status()
         return f"SecurityFeature + {next_status}"
 
+    def describe(self) -> str:
+        """Return security feature description."""
+
+        description = super().describe()
+        return f"{description} + SecurityFeature"
+
 class EnterpriseDevice(CiscoFeature, SecurityFeature):
     """Represent an enterprise device with multiple features."""
 
@@ -85,6 +102,11 @@ class EnterpriseDevice(CiscoFeature, SecurityFeature):
         next_status = super().show_status()
         return f"EnterpriseDevice + {next_status}"
 
+    def describe(self) -> str:
+        """Return enterprise device description."""
+
+        description = super().describe()
+        return f"{description} + EnterpriseDevice"
 
 class ManagedDevice(NetworkDevice, MonitoringFeature):
     """Represent a device with network and monitoring features."""
@@ -110,6 +132,16 @@ if __name__ == "__main__":
         EnterpriseDevice.__mro__
         == tuple(EnterpriseDevice.mro())
     )
+    
+    print(enterprise_device.describe())
+    
+    print("\nTesting method resolution:")
+    print(enterprise_device.describe())
+    
+    print("\nTesting MRO:")
+
+    for cls in EnterpriseDevice.mro():
+        print(cls.__name__)
     
     print('=' * 100)
     print(enterprise_device.show_status())
