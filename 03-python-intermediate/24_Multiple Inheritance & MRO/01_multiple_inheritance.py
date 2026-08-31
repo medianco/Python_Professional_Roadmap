@@ -50,7 +50,18 @@ NetworkDevice
 
 1️⃣ Multiple Inheritance
     EnterpriseDevice is a CiscoFeature + SecurityFeature
-    It is called (is-a) relationship.  
+    It is called (is-a) relationship.
+ 
+    - Inheritance   
+                   NetworkDevice
+                         │
+              ┌──────────┴──────────┐
+              │                     │
+        CiscoDevice            JuniperDevice
+        
+    This is very suitable for inheritance because:
+       CiscoDevice IS-A NetworkDevice
+       JuniperDevice IS-A NetworkDevice
 
 2️⃣ Composition
     EnterpriseDevice has a SecurityManager.
@@ -59,6 +70,20 @@ NetworkDevice
        └── security
               │
               └── SecurityManager
+              
+    Ex:
+      NetworkDevice
+      │
+      ├── SSHManager
+      ├── ConfigManager
+      ├── MonitoringManager
+      └── SecurityManager
+      
+      Here's a composition that often makes more sense:
+      NetworkDevice HAS-A SSHManager
+      NetworkDevice HAS-A ConfigManager
+      NetworkDevice HAS-A MonitoringManager
+      NetworkDevice HAS-A SecurityManager
     
 Author: Mohammed AL-Dubai
 """
@@ -169,6 +194,8 @@ if __name__ == "__main__":
     )
     
     print(enterprise_device.describe())
+    print('=' * 100)
+    
     
     print("\nTesting method resolution:")
     print(enterprise_device.describe())
