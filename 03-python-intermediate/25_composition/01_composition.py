@@ -7,6 +7,8 @@ This lesson demonstrates:
 - HAS-A relationship
 - Object collaboration
 - Delegation
+- Loose Coupling
+- Dependency Injection
         
         NetworkDevice
               │
@@ -29,6 +31,9 @@ This lesson demonstrates:
               │ delegates SSH work
               ▼
         SSHConnection             
+
+Author: Mohammed AL-Dubai
+
 """
 
 
@@ -67,12 +72,26 @@ NetworkDevice
 class NetworkDevice:
     """Represent a network device."""
 
+    '''
     def __init__(self, hostname: str) -> None:
         self.hostname = hostname
         
         self.ssh = SSHConnection()
         self.config = ConfigurationManager()
         self.monitoring = MonitoringManager()
+    '''
+    
+    def __init__(
+        self,
+        hostname: str,
+        ssh: SSHConnection,
+        config: ConfigurationManager,
+        monitoring: MonitoringManager,
+    ) -> None:
+        self.hostname = hostname
+        self.ssh = ssh
+        self.config = config
+        self.monitoring = monitoring    
     
     def connect(self) -> str:
         """Connect to the network device using SSH."""
@@ -89,14 +108,65 @@ class NetworkDevice:
     
         return self.monitoring.check_status()
 
+
+
+'''
+ - CiscoRouter IS-A NetworkDevice
+ - CiscoRouter HAS-A SSHConnection
+ - CiscoRouter HAS-A ConfigurationManager
+ - CiscoRouter HAS-A MonitoringManager
+
+                 NetworkDevice
+                /             \
+               /               \
+              ▼                 ▼
+        Inheritance         Composition
+              │                 │
+              ▼                 ▼
+        CiscoRouter       SSHConnection
+                          ConfigurationManager
+                          MonitoringManager
+'''
+
+class CiscoRouter(NetworkDevice):
+    """Represent a Cisco router."""
+
+    def show_platform(self) -> str:
+        """Return the device platform."""
+        return "Cisco IOS"
+
 if __name__ == "__main__":
     
-    device = NetworkDevice("R1")
+    #device = NetworkDevice("R1")
+
+    ssh = SSHConnection()
+    config = ConfigurationManager()
+    monitoring = MonitoringManager()
+    
+    device = NetworkDevice(
+        "R1",
+        ssh,
+        config,
+        monitoring,
+    )
 
     print(device.hostname)
     print(device.connect())
     print(device.backup_config())
     print(device.check_status())
     print('=' * 30)
+    
+    router = CiscoRouter(
+        "R1",
+        ssh,
+        config,
+        monitoring,
+    )
+    
+    print(router.hostname)
+    print(router.show_platform())
+    print(router.connect())
+    print('=' * 30)
+    
     print(device.ssh.connect()) 
  
