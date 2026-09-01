@@ -7,6 +7,8 @@ This lesson demonstrates:
 - HAS-A relationship
 - Object collaboration
 - Delegation
+- Loose Coupling
+- Dependency Injection
         
         NetworkDevice
               │
@@ -70,12 +72,26 @@ NetworkDevice
 class NetworkDevice:
     """Represent a network device."""
 
+    '''
     def __init__(self, hostname: str) -> None:
         self.hostname = hostname
         
         self.ssh = SSHConnection()
         self.config = ConfigurationManager()
         self.monitoring = MonitoringManager()
+    '''
+    
+    def __init__(
+        self,
+        hostname: str,
+        ssh: SSHConnection,
+        config: ConfigurationManager,
+        monitoring: MonitoringManager,
+    ) -> None:
+        self.hostname = hostname
+        self.ssh = ssh
+        self.config = config
+        self.monitoring = monitoring    
     
     def connect(self) -> str:
         """Connect to the network device using SSH."""
@@ -94,7 +110,18 @@ class NetworkDevice:
 
 if __name__ == "__main__":
     
-    device = NetworkDevice("R1")
+    #device = NetworkDevice("R1")
+
+    ssh = SSHConnection()
+    config = ConfigurationManager()
+    monitoring = MonitoringManager()
+    
+    device = NetworkDevice(
+        "R1",
+        ssh,
+        config,
+        monitoring,
+    )
 
     print(device.hostname)
     print(device.connect())
