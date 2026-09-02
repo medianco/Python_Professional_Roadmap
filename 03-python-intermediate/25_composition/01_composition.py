@@ -3,12 +3,15 @@ Lesson 25: Composition
 
 This lesson demonstrates:
 - Composition
+- Composition vs. Inheritance
 - Multiple Composition
 - HAS-A relationship
 - Object collaboration
 - Delegation
 - Loose Coupling
 - Dependency Injection
+- Protocol
+- Flexible Components
         
         NetworkDevice
               │
