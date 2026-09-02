@@ -36,6 +36,26 @@ Author: Mohammed AL-Dubai
 
 """
 
+from typing import Protocol
+
+'''
+                    NetworkDevice
+                         │
+                         │ HAS-A
+                         ▼
+                    Connection
+                    /         \
+                   /           \
+                  ▼             ▼
+          SSHConnection   TelnetConnection
+'''
+
+class Connection(Protocol):
+    """Define the interface for a network connection."""
+
+    def connect(self) -> str:
+        """Establish a connection."""
+        ...
 
 class SSHConnection:
     """Represent an SSH connection."""
@@ -43,6 +63,13 @@ class SSHConnection:
     def connect(self) -> str:
         """Establish an SSH connection."""
         return "SSH connection established"
+
+class TelnetConnection:
+    """Represent a Telnet connection."""
+
+    def connect(self) -> str:
+        """Establish a Telnet connection."""
+        return "Telnet connection established"
 
 class ConfigurationManager:
     """Manage network device configuration."""
@@ -84,7 +111,8 @@ class NetworkDevice:
     def __init__(
         self,
         hostname: str,
-        ssh: SSHConnection,
+        #ssh: SSHConnection,
+        ssh: Connection,
         config: ConfigurationManager,
         monitoring: MonitoringManager,
     ) -> None:
@@ -166,6 +194,18 @@ if __name__ == "__main__":
     print(router.hostname)
     print(router.show_platform())
     print(router.connect())
+    print('=' * 30)
+    
+    telnet = TelnetConnection()
+
+    device_telnet = NetworkDevice(
+        "R2",
+        telnet,
+        config,
+        monitoring,
+    )
+
+    print(device_telnet.connect())
     print('=' * 30)
     
     print(device.ssh.connect()) 
