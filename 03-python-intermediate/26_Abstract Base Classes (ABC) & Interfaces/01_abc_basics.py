@@ -36,6 +36,12 @@ class NetworkDevice(ABC):
     def show_status(self) -> str:
         """Return the device status."""
         ...
+    
+    @abstractmethod
+    def show_model(self) -> str:
+        """Return the device model."""
+        ...
+        
         
     def show_hostname(self) -> str:
         """Return the device hostname."""
@@ -54,11 +60,13 @@ class CiscoRouter(NetworkDevice):
     def show_status(self) -> str:
         return "Cisco Router status: UP"
 
-
+    def show_model(self) -> str:
+        return "Cisco Router model: Cisco ASR 1000 Series"
 
 router = CiscoRouter("R1")
 
 print(router.show_hostname())
+print(router.show_model())
 print(router.connect())
 print(router.show_status())
 print(router.disconnect())
