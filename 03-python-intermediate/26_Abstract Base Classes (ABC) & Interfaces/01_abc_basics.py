@@ -46,7 +46,49 @@
    
 '''
 
+'''
+# ABC vs Protocol
+#
+# ABC:
+# - Relies on inheritance.
+# - Enforces a contract for subclasses.
+# - Can provide shared implementation.
+# - Best when there is a strong relationship between classes.
+# - Represents an "IS-A" relationship.
+#
+# Protocol:
+# - Does not require inheritance.
+# - Defines required behavior.
+# - Focuses on structural typing.
+# - Best when we care about what an object can do.
+# - Represents "HAS-THE-REQUIRED-BEHAVIOR".
+#
+# Key idea:
+# ABC focuses on inheritance and a formal contract,
+# while Protocol focuses on behavior and compatibility.
+'''
+
 from abc import ABC, abstractmethod
+from typing import Protocol
+
+class Connection(Protocol):
+
+    def connect(self) -> str:
+        ...
+
+    def disconnect(self) -> str:
+        ...
+
+class SSHConnection:
+
+    def connect(self) -> str:
+        return "SSH connection established"
+
+class TELNETConnection:
+
+    def connect(self) -> str:
+        return "TELNET connection established"
+
 
 class NetworkDevice(ABC):
     """Define the common interface for network devices."""
@@ -150,7 +192,19 @@ for device in devices:
     check_device(device)
     print("=" * 30)
     
-    
+
+
+def establish_connection(connection: Connection) -> str:
+    return connection.connect()    
+ 
+ssh = SSHConnection()
+telnet = TELNETConnection()
+
+print(establish_connection(ssh))
+print(establish_connection(telnet))
+print("=" * 30)
+
+
 router = CiscoRouter("R1")
 
 print(router.show_hostname())
