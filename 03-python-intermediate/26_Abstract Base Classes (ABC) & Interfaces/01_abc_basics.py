@@ -56,6 +56,13 @@
 # - Best when there is a strong relationship between classes.
 # - Represents an "IS-A" relationship.
 #
+#      ABC
+        │
+        ├── Inheritance
+        ├── Strong relationship
+        ├── Contract
+        └── Shared implementation
+        
 # Protocol:
 # - Does not require inheritance.
 # - Defines required behavior.
@@ -63,24 +70,18 @@
 # - Best when we care about what an object can do.
 # - Represents "HAS-THE-REQUIRED-BEHAVIOR".
 #
-# Key idea:
-# ABC focuses on inheritance and a formal contract,
-# while Protocol focuses on behavior and compatibility.
 
-        ABC
-        │
-        ├── Inheritance
-        ├── Strong relationship
-        ├── Contract
-        └── Shared implementation
-
-
-        Protocol
+#    Protocol
         │
         ├── No inheritance required
         ├── Behavior
         ├── Structural typing
         └── Flexible design
+
+# Key idea:
+# ABC focuses on inheritance and a formal contract,
+# while Protocol focuses on behavior and compatibility.
+
 '''
 
 from abc import ABC, abstractmethod
