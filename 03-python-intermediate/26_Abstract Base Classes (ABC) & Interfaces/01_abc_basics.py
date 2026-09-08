@@ -70,7 +70,6 @@
 # - Best when we care about what an object can do.
 # - Represents "HAS-THE-REQUIRED-BEHAVIOR".
 #
-
 #    Protocol
         │
         ├── No inheritance required
