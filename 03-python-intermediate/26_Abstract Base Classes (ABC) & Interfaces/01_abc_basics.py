@@ -66,6 +66,21 @@
 # Key idea:
 # ABC focuses on inheritance and a formal contract,
 # while Protocol focuses on behavior and compatibility.
+
+        ABC
+        │
+        ├── Inheritance
+        ├── Strong relationship
+        ├── Contract
+        └── Shared implementation
+
+
+        Protocol
+        │
+        ├── No inheritance required
+        ├── Behavior
+        ├── Structural typing
+        └── Flexible design
 '''
 
 from abc import ABC, abstractmethod
