@@ -84,11 +84,28 @@ class SSHConnection:
     def connect(self) -> str:
         return "SSH connection established"
 
+    def disconnect(self) -> str:
+        return "SSH connection closed"
+        
+        
 class TELNETConnection:
 
     def connect(self) -> str:
         return "TELNET connection established"
 
+    def disconnect(self) -> str:
+        return "TELNET connection closed"
+
+
+class APIConnection:
+    """Represent an API-based connection."""
+
+    def connect(self) -> str:
+        return "API connection established"
+
+    def disconnect(self) -> str:
+        return "API connection closed"
+        
 
 class NetworkDevice(ABC):
     """Define the common interface for network devices."""
@@ -195,14 +212,20 @@ for device in devices:
 
 
 def establish_connection(connection: Connection) -> str:
+    """Test a network connection."""
     return connection.connect()    
  
 ssh = SSHConnection()
 telnet = TELNETConnection()
+api = APIConnection()
+
 
 print(establish_connection(ssh))
 print(establish_connection(telnet))
-print("=" * 30)
+print(establish_connection(api))
+print(ssh.disconnect())
+print(api.disconnect())
+print("=" * 45)
 
 
 router = CiscoRouter("R1")
