@@ -115,19 +115,19 @@ class NetworkDevice:
         self,
         hostname: str,
         #ssh: SSHConnection,
-        connecting_type: Connection,
+        connection: Connection,
         config: ConfigurationManager,
         monitoring: MonitoringManager,
     ) -> None:
         self.hostname = hostname
-        self.connecting_type = connecting_type
+        self.connection = connection
         self.config = config
         self.monitoring = monitoring    
     
     def connect(self) -> str:
-        """Connect to the network device using  connecting type."""
+        """Connect to the network device using connection."""
     
-        return self.connecting_type.connect()    
+        return self.connection.connect()    
         
     def backup_config(self) -> str:
         """Back up the device configuration."""
@@ -211,5 +211,5 @@ if __name__ == "__main__":
     print(device_telnet.connect())
     print('=' * 30)
     
-    print(device.connecting_type.connect()) 
+    print(device.connection.connect()) 
  
