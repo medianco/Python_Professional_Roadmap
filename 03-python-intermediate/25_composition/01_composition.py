@@ -125,7 +125,7 @@ class NetworkDevice:
         self.monitoring = monitoring    
     
     def connect(self) -> str:
-        """Connect to the network device using SSH."""
+        """Connect to the network device using  connecting type."""
     
         return self.connecting_type.connect()    
         
