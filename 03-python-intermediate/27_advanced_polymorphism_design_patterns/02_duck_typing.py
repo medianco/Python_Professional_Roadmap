@@ -38,6 +38,13 @@ class TelnetConnection:
         return "Telnet connection established"
 
 
+class SNMPConnection:
+    """Represent an SNMP connection."""
+
+    def connect(self) -> str:
+        return "SNMP connection established"
+
+
 def establish_connection(connection) -> str:
     """
     Establish a connection using Duck Typing.
@@ -55,6 +62,7 @@ def main() -> None:
         SSHConnection(),
         APIConnection(),
         TelnetConnection(),
+        SNMPConnection(),
     ]
 
     for connection in connections:
