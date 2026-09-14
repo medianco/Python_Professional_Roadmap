@@ -36,6 +36,30 @@ Architecture:
                ┌─────────┼─────────┐
                ↓         ↓         ↓
               SSH       API      NETCONF
+
+#################################################################
+
+                    DeviceFactory
+                         │
+                         ↓
+                  NetworkDevice
+                       (ABC)
+                         │
+              ┌──────────┼──────────┐
+              ↓          ↓          ↓
+           Cisco       Cisco      Juniper
+           Router      Switch      Router
+                         │
+                         │
+                    Composition
+                         │
+                         ↓
+                ConnectionStrategy
+                    (Protocol)
+                         │
+              ┌──────────┼──────────┐
+              ↓          ↓          ↓
+             SSH        API       NETCONF
 """
 
 
