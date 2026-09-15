@@ -433,6 +433,7 @@ This creates a flexible architecture based on **separation of responsibilities**
 # 27.12 Design Principles & SOLID
 
 Throughout this lesson, we will focus on several important software engineering principles.
+
 S → Single Responsibility Principle
 O → Open/Closed Principle
 L → Liskov Substitution Principle
