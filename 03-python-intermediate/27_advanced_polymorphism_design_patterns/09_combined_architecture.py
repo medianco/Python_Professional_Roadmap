@@ -391,9 +391,12 @@ def main() -> None:
     )
 
     # --------------------------------------------------------
+    # Polymorphism
     # Store all devices in one list.
     #
     # This demonstrates polymorphism.
+    # All objects are NetworkDevice objects,
+    # even though they are different concrete classes.
     # --------------------------------------------------------
 
     devices: list[NetworkDevice] = [
