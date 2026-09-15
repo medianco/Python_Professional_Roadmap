@@ -52,7 +52,10 @@ from typing import Protocol
 class ConnectionStrategy(Protocol):
     """
     Define the required connection behavior.
-
+    
+    Any class that provides connect() and disconnect()
+    is compatible with this Protocol.
+    
     Any connection strategy must provide:
     - connect()
     - disconnect()
@@ -122,7 +125,10 @@ class NETCONFConnection:
 class NetworkDevice(ABC):
     """
     Abstract base class for network devices.
-
+    
+    The device uses Composition to work with
+    an external Connection object.
+    
     The connection strategy is injected into the device.
     """
 
@@ -134,6 +140,9 @@ class NetworkDevice(ABC):
         """Initialize the network device."""
 
         self.hostname = hostname
+
+        # Composition:
+        # NetworkDevice HAS-A Connection.
         self.connection = connection
 
     def connect(self) -> str:
@@ -146,7 +155,12 @@ class NetworkDevice(ABC):
 
     @abstractmethod
     def show_status(self) -> str:
-        """Return the device status."""
+        """
+        Return the device status.
+
+        Every concrete network device must implement
+        this method.
+        """
         ...
 
 
