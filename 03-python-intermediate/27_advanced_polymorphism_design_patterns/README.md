@@ -434,11 +434,13 @@ This creates a flexible architecture based on **separation of responsibilities**
 
 Throughout this lesson, we will focus on several important software engineering principles.
 
+```text
 S → Single Responsibility Principle
 O → Open/Closed Principle
 L → Liskov Substitution Principle
 I → Interface Segregation Principle
 D → Dependency Inversion Principle
+```
 
 ## Loose Coupling
 
