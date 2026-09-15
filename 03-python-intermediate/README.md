@@ -763,9 +763,9 @@ Every major topic should be reinforced through:
 | 22     | Class & Static Methods       | ✅ Completed  |
 | 23     | Inheritance & Polymorphism   | ✅ Completed  |
 | 24     | Multiple Inheritance & MRO   | ✅ Completed  |
-| 25     | Composition                  | 🔥 Challenge |
-| 26     | ABC & Interfaces             | ⏳ Upcoming   |
-| 27     | Design Patterns              | ⏳ Upcoming   |
+| 25     | Composition                  | ✅ Completed |
+| 26     | ABC & Interfaces             | ✅ Completed   |
+| 27     | Design Patterns              | ✅ Completed   |
 | 28     | Exception Handling           | ⏳ Upcoming   |
 | 29–49  | Advanced Intermediate Topics | ⏳ Upcoming   |
 
