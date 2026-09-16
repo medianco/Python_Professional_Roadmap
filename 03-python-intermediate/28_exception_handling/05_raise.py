@@ -7,6 +7,21 @@ exceptions using the raise statement.
 Network Engineering Context:
 We can use raise to validate network device information
 and prevent invalid data from entering our application.
+        
+        IP Address
+             │
+             ▼
+        Validation
+             │
+         ┌───┴────┐
+         │        │
+        Valid    Invalid
+         │        │
+         ▼        ▼
+    Continue  raise ValueError
+                  │
+                  ▼
+                except
 """
 
 import ipaddress
