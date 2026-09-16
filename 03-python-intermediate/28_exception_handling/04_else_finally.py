@@ -10,6 +10,29 @@ This example demonstrates the use of:
 Network Engineering Context:
 The finally block is useful for cleanup operations,
 such as closing network connections or releasing resources.
+
+        try
+         │
+         ├── Exception → except
+         │
+         └── No Exception → else
+         
+         
+             try
+              │
+       ┌──────┴──────┐
+       │             │
+    Success        Error
+       │             │
+       ↓             ↓
+     else          except
+       │             │
+       └──────┬──────┘
+              ↓
+           finally
+              │
+              ↓
+          disconnect
 """
 
 
