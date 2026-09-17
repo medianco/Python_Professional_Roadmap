@@ -16,6 +16,26 @@ that may fail for different reasons, such as:
 
 Exception handling allows our automation system
 to handle these failures gracefully.
+
+            Network Device
+                  │
+                  ▼
+             connect()
+                  │
+           ┌──────┴──────┐
+           │             │
+       Success         Failure
+           │             │
+           ▼             ▼
+       Check Device   except
+           │             │
+           └──────┬──────┘
+                  ▼
+               finally
+                  │
+                  ▼
+              Continue
+              Next Device
 """
 
 
