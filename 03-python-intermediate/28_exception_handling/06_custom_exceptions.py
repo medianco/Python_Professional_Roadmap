@@ -8,6 +8,27 @@ Network Engineering Context:
 Custom exceptions allow Network Automation systems
 to provide clear and meaningful error types for
 network-specific validation and operations.
+
+########################################################
+                 Network Automation
+                         │
+                         ▼
+                   Validation Layer
+                         │
+        ┌────────────────┼────────────────┐
+        ↓                ↓                ↓
+   IP Validation    Hostname Check    Device Type
+        │                │                │
+        ↓                ↓                ↓
+InvalidIPAddress   InvalidHostname   InvalidDeviceType
+        │                │                │
+        └────────────────┼────────────────┘
+                         ↓
+                  Exception Handler
+                         │
+                         ↓
+                       Logger
+########################################################                       
 """
 
 import ipaddress
