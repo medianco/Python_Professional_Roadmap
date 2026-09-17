@@ -15,6 +15,26 @@ system should validate important information such as:
 
 Custom exceptions are used to provide clear and
 meaningful validation errors.
+
+Device
+  │
+  ├── Hostname
+  │
+  ├── IP Address
+  │
+  ├── Device Type
+  │
+  └── Connection Type
+          │
+          ▼
+      Validation
+          │
+     ┌────┴────┐
+     │         │
+   Valid     Invalid
+     │         │
+     ▼         ▼
+ Success    Exception
 """
 
 import ipaddress
