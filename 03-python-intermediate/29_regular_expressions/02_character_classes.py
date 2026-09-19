@@ -21,7 +21,7 @@ import re
 def find_digits(text: str) -> None:
     """Find all digits in the provided text."""
 
-    matches = re.findall(r"\d", text)
+    matches = re.findall("\\d", text)
 
     print(f"Text: {text}")
     print(f"Digits: {matches}")
