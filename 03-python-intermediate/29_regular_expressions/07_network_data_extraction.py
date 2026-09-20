@@ -17,6 +17,23 @@ raw CLI output, such as:
 
 Regex can help convert raw CLI output into
 structured Python data.
+
+############################################################
+  CLI Output → Structured Information
+  
+          Cisco CLI
+           │
+           ▼
+        Raw Text
+           │
+           ▼
+        Regex
+           │
+           ├── Interfaces
+           ├── IP Addresses
+           ├── MAC Addresses
+           ├── VLAN IDs
+           └── Interface Status
 """
 
 import re
