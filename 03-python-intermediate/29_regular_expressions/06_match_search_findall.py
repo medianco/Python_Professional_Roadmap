@@ -13,6 +13,22 @@ These functions are useful when processing:
 - IP addresses
 - VLAN information
 - Network logs
+
+        re.match()
+            ↓
+        Beginning only
+        
+        re.search()
+            ↓
+        First match anywhere
+        
+        re.findall()
+            ↓
+        All matches
+        
+        re.fullmatch()
+            ↓
+        Entire string
 """
 
 import re
