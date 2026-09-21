@@ -1,5 +1,62 @@
 # 30.1 — JSON Basics
+JSON (JavaScript Object Notation) is one of the most important data formats used in modern software development, APIs, cloud platforms, network automation, and cybersecurity.
 
+For Network Engineers, JSON is especially important because many modern network platforms expose their configuration, inventory, monitoring data, and automation interfaces through REST APIs that use JSON.
+
+Examples:
+
+- Cisco APIs
+- Cisco Catalyst Center
+- Meraki Dashboard API
+- Aruba Central API
+- Fortinet APIs
+- Cloud APIs
+- Network Monitoring Systems
+- Automation Platforms
+
+In this lesson, we will learn how to work with JSON professionally using Python.
+
+---
+
+# 🎯 Learning Objectives
+
+By the end of this lesson, you will be able to:
+
+- Understand the JSON data format.
+- Understand JSON objects and arrays.
+- Understand JSON data types.
+- Understand the difference between JSON and Python data types.
+- Use `json.dumps()`.
+- Use `json.loads()`.
+- Write JSON data to files.
+- Read JSON data from files.
+- Work with nested JSON structures.
+- Process network device information stored in JSON.
+- Use JSON in Network Automation.
+- Validate JSON-based network data.
+- Build a practical Network Device Inventory application.
+
+---
+
+# 📂 Lesson Structure
+
+```text
+30_json/
+│
+├── README.md
+│
+├── 01_json_basics.py
+├── 02_json_dumps.py
+├── 03_json_loads.py
+├── 04_json_file_write.py
+├── 05_json_file_read.py
+├── 06_json_nested_data.py
+├── 07_json_network_devices.py
+├── 08_json_network_automation.py
+├── 09_json_validation.py
+│
+└── challenge/
+    └── network_device_inventory.py
 ## What is JSON?
 
 JSON stands for:
