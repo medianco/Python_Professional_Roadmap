@@ -49,11 +49,6 @@ By the end of this lesson, you will be able to:
 │
 └── challenge/
     └── network_device_inventory.py
-صحيح 👍 نحن **ما زلنا في مرحلة تجهيز `README.md` للدرس 30**، ولم نبدأ ملفات الدرس بعد.
-
-سنثبت أولًا الـ **README.md** كاملًا، وبعد أن تتأكد أنه مناسب نبدأ `01_json_basics.py`.
-
-### `03-python-intermediate/30_json/README.md`
 
 ````markdown
 # Lesson 30 — JSON
