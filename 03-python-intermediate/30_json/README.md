@@ -50,7 +50,6 @@ By the end of this lesson, you will be able to:
 └── challenge/
     └── network_device_inventory.py
 
-````markdown
 # Lesson 30 — JSON
 
 ## 📌 Overview
