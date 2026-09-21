@@ -833,7 +833,3 @@ Prove Your Skills
 **Next Generation Network Engineer**
 
 **Mohammed AL-Dubai**
-
-```
-
-```
