@@ -1,55 +1,10 @@
-# Lesson 30 — JSON
+صحيح 👍 نحن **ما زلنا في مرحلة تجهيز `README.md` للدرس 30**، ولم نبدأ ملفات الدرس بعد.
 
-JSON (JavaScript Object Notation) is one of the most important
-data formats used in modern software development, APIs,
-Network Automation, and cloud technologies.
+سنثبت أولًا الـ **README.md** كاملًا، وبعد أن تتأكد أنه مناسب نبدأ `01_json_basics.py`.
 
-In Network Engineering, JSON is especially important because
-many modern network platforms and automation tools exchange
-structured data using JSON.
+### `03-python-intermediate/30_json/README.md`
 
----
-
-## 🎯 Learning Objectives
-
-By the end of this lesson, you will be able to:
-
-- Understand the JSON data format.
-- Understand the relationship between JSON and Python data types.
-- Convert Python objects to JSON.
-- Convert JSON data to Python objects.
-- Use `json.dumps()`.
-- Use `json.loads()`.
-- Write JSON data to files.
-- Read JSON data from files.
-- Work with nested JSON structures.
-- Extract network information from JSON.
-- Build structured network device inventories.
-- Use JSON in Network Automation workflows.
-- Validate and process structured network data.
-
----
-
-# 📚 Lesson Structure
-
-```text
-30_json/
-│
-├── README.md
-│
-├── 01_json_basics.py
-├── 02_json_dumps.py
-├── 03_json_loads.py
-├── 04_json_file_write.py
-├── 05_json_file_read.py
-├── 06_json_nested_data.py
-├── 07_json_network_devices.py
-├── 08_json_network_automation.py
-├── 09_json_validation.py
-│
-└── challenge/
-    └── network_device_inventory.py
-
+````markdown
 # Lesson 30 — JSON
 
 ## 📌 Overview
@@ -112,6 +67,7 @@ By the end of this lesson, you will be able to:
 │
 └── challenge/
     └── network_device_inventory.py
+````
 
 ---
 
@@ -951,4 +907,6 @@ Prove Your Skills
 
 **Mohammed AL-Dubai**
 
+```
 
+```
