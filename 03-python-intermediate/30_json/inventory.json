@@ -1,1 +1,36 @@
-
+{
+    "devices": [
+        {
+            "hostname": "R1",
+            "management_ip": "192.168.1.1",
+            "device_type": "router",
+            "vendor": "Cisco",
+            "location": "Data Center",
+            "enabled": true
+        },
+        {
+            "hostname": "R2",
+            "management_ip": "192.168.1.2",
+            "device_type": "router",
+            "vendor": "Cisco",
+            "location": "Branch 1",
+            "enabled": true
+        },
+        {
+            "hostname": "SW1",
+            "management_ip": "192.168.1.10",
+            "device_type": "switch",
+            "vendor": "Cisco",
+            "location": "Data Center",
+            "enabled": false
+        },
+        {
+            "hostname": "FW1",
+            "management_ip": "192.168.1.254",
+            "device_type": "firewall",
+            "vendor": "Fortinet",
+            "location": "Data Center",
+            "enabled": true
+        }
+    ]
+}
