@@ -21,22 +21,22 @@ that the inventory contains valid and complete data.
                   json.load()
                        │
                        ▼
-               Validate JSON
+                Validate JSON
                        │
                        ▼
-             Validate Structure
+              Validate Structure
                        │
                        ▼
-            Validate Device Data
+              Validate Device Data
                        │
                        ▼
-              Filter Devices
+                Filter Devices
                        │
                        ▼
-           Automation Targets
+               Automation Targets
                        │
                        ▼
-              Network Automation
+               Network Automation
 """
 
 import json
