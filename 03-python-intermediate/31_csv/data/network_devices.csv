@@ -1,1 +1,5 @@
-
+hostname,management_ip,device_type,vendor
+R1,192.168.1.1,router,Cisco
+R2,192.168.1.2,router,Cisco
+SW1,192.168.1.10,switch,Cisco
+FW1,192.168.1.254,firewall,Fortinet
