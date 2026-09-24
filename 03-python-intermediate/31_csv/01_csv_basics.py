@@ -9,6 +9,22 @@ in a simple tabular format.
 
 The CSV data is stored in a separate file to keep
 DATA and Python LOGIC separated.
+
+## Network Automation
+
+             Network Inventory
+                    │
+                    ▼
+          network_devices.csv
+                    │
+                    ▼
+             Python Script
+                    │
+                    ▼
+          Processing / Validation
+                    │
+                    ▼
+          Network Automation
 """
 
 
