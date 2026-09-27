@@ -1,1 +1,31 @@
-
+<?xml version='1.0' encoding='utf-8'?>
+<network_inventory>
+    <device id="R1" status="active">
+        <hostname>R1</hostname>
+        <management_ip>192.168.1.1</management_ip>
+        <device_type>router</device_type>
+        <vendor>Cisco</vendor>
+        <location>Data Center</location>
+    </device>
+    <device id="R2" status="active">
+        <hostname>R2</hostname>
+        <management_ip>192.168.1.2</management_ip>
+        <device_type>router</device_type>
+        <vendor>Cisco</vendor>
+        <location>Branch 1</location>
+    </device>
+    <device id="SW1" status="active">
+        <hostname>SW1</hostname>
+        <management_ip>192.168.1.10</management_ip>
+        <device_type>switch</device_type>
+        <vendor>Cisco</vendor>
+        <location>Data Center</location>
+    </device>
+    <device id="FW1" status="active">
+        <hostname>FW1</hostname>
+        <management_ip>192.168.1.254</management_ip>
+        <device_type>firewall</device_type>
+        <vendor>Fortinet</vendor>
+        <location>Data Center</location>
+    </device>
+</network_inventory>
