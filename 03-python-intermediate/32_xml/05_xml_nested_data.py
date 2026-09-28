@@ -9,24 +9,24 @@ Network devices contain hierarchical information.
 
 For example:
 
-Network
- │
- └──Device
-      ├── Hostname
-      ├── Management_ip
-      ├── Interfaces
-      │     ├── Interface
-      │     │    ├── name
-      │     │    ├── ip
-      │     │    └── status
-      │     │
-      │     └── Interface
-      │          ├── name
-      │          ├── ip
-      │          └── status
-      │
-      ├── Routing
-      └── Management
+   Network
+     │
+     └──Device
+          ├── Hostname
+          ├── Management_ip
+          ├── Interfaces
+          │     ├── Interface
+          │     │    ├── name
+          │     │    ├── ip
+          │     │    └── status
+          │     │
+          │     └── Interface
+          │          ├── name
+          │          ├── ip
+          │          └── status
+          │
+          ├── Routing
+          └── Management
 
 XML is well suited for representing this type
 of hierarchical network data.
