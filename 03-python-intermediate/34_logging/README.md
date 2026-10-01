@@ -81,7 +81,7 @@ logger.info("Connecting to R1...")
 
 ---
 
-# 34.2 Logging Levels
+## 34.2 Logging Levels
 
 Logging levels are used to classify log messages according to their **severity and importance**.
 
