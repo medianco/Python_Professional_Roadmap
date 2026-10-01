@@ -19,6 +19,20 @@ Note:
 This lesson does not establish real SSH connections.
 It prepares the data that could later be passed to
 Netmiko, Nornir, Paramiko, or another automation tool.
+##########################################################
+         network_devices.yaml
+                 ↓
+             Load YAML
+                 ↓
+         Validate inventory
+                 ↓
+         Filter active devices
+                 ↓
+         Select SSH devices
+                 ↓
+         Create automation targets
+                 ↓
+         Display connection information
 """
 
 from pathlib import Path
