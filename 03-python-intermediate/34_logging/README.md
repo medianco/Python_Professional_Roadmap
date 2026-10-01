@@ -83,7 +83,9 @@ logger.info("Connecting to R1...")
 
 # 34.2 Logging Levels
 
-Python provides several standard logging levels:
+Logging levels are used to classify log messages according to their **severity and importance**.
+
+Python's `logging` module provides five standard logging levels that are commonly used in application development and Network Automation:
 
 ```text
 DEBUG
@@ -93,7 +95,7 @@ ERROR
 CRITICAL
 ```
 
-Severity hierarchy:
+The levels form a severity hierarchy:
 
 ```text
 DEBUG
@@ -107,55 +109,731 @@ ERROR
 CRITICAL
 ```
 
-### DEBUG
+The higher the level, the more severe the event.
 
-Detailed information useful for troubleshooting.
+---
 
-Example:
+## 📊 Standard Logging Levels
 
-```text
-DEBUG - Connection parameters loaded
+| Level      | Numeric Value | Severity | Purpose                                            |
+| ---------- | ------------: | -------- | -------------------------------------------------- |
+| `DEBUG`    |            10 | Lowest   | Detailed diagnostic information                    |
+| `INFO`     |            20 | Normal   | Confirmation of normal application operation       |
+| `WARNING`  |            30 | Moderate | Something unexpected or potentially problematic    |
+| `ERROR`    |            40 | High     | An operation failed                                |
+| `CRITICAL` |            50 | Highest  | A serious failure affecting the application/system |
+
+---
+
+# 1. DEBUG
+
+```python
+logger.debug("Preparing SSH connection to R1")
 ```
 
-### INFO
+### Purpose
 
-Normal application events.
+`DEBUG` is used for detailed information that is primarily useful during development, troubleshooting, and diagnostics.
 
-Example:
+It can provide information about the internal state of an application.
 
-```text
-INFO - Successfully connected to R1
-```
-
-### WARNING
-
-Something unexpected happened, but the application can continue.
-
-Example:
+### Network Automation Examples
 
 ```text
-WARNING - Device response time is high
+DEBUG | Loading device inventory
+DEBUG | Preparing connection to R1
+DEBUG | Management IP: 192.168.1.1
+DEBUG | Management port: 22
+DEBUG | Preparing SSH parameters
+DEBUG | Sending command: show version
 ```
 
-### ERROR
+### When to use DEBUG
 
-An operation failed.
-
-Example:
+Use `DEBUG` when you need to answer questions such as:
 
 ```text
-ERROR - Failed to connect to R1
+What exactly is the application doing?
+Which parameters were loaded?
+Which step is currently executing?
+Where did the process stop?
 ```
 
-### CRITICAL
+### Important Security Note
 
-A serious failure that may prevent the application from continuing.
+Do not use DEBUG logs to expose sensitive information.
 
-Example:
+Avoid:
 
 ```text
-CRITICAL - Automation system cannot continue
+DEBUG | username=admin password=Cisco123
 ```
+
+Prefer:
+
+```text
+DEBUG | Authentication parameters loaded
+```
+
+---
+
+# 2. INFO
+
+```python
+logger.info("Successfully connected to R1")
+```
+
+### Purpose
+
+`INFO` is used to record normal application events and confirm that expected operations are taking place.
+
+This is usually the primary level for operational logs.
+
+### Network Automation Examples
+
+```text
+INFO | Starting Network Automation
+INFO | Loading device inventory
+INFO | Connecting to R1
+INFO | Connection successful
+INFO | Executing show version
+INFO | Configuration completed
+INFO | Disconnecting from R1
+```
+
+### When to use INFO
+
+Use `INFO` when an important normal event occurs.
+
+Think of it as:
+
+> "The application is operating normally, and this event is worth recording."
+
+---
+
+# 3. WARNING
+
+```python
+logger.warning("R1 response time is higher than expected")
+```
+
+### Purpose
+
+`WARNING` indicates an unexpected condition or situation that may require attention, but does not necessarily mean that the current operation has failed.
+
+The application can usually continue.
+
+### Network Automation Examples
+
+```text
+WARNING | R1 response time is higher than expected
+WARNING | Device configuration is approaching timeout
+WARNING | Interface GigabitEthernet0/1 is down
+WARNING | Device inventory contains an inactive device
+```
+
+### Important Concept
+
+A warning does **not necessarily mean failure**.
+
+For example:
+
+```text
+Device response time = 8 seconds
+```
+
+The connection may still succeed, but the response time may be unusual.
+
+Therefore:
+
+```text
+WARNING
+```
+
+is more appropriate than:
+
+```text
+ERROR
+```
+
+---
+
+# 4. ERROR
+
+```python
+logger.error("Failed to connect to R1")
+```
+
+### Purpose
+
+`ERROR` indicates that an operation has failed.
+
+The application may still be able to continue processing other operations.
+
+### Network Automation Examples
+
+```text
+ERROR | Failed to connect to R1
+ERROR | Command execution failed on R2
+ERROR | Configuration failed on SW1
+ERROR | Invalid device configuration
+ERROR | API request failed
+```
+
+### Example
+
+Suppose an automation system processes four devices:
+
+```text
+R1 → Success
+R2 → Connection Failed
+SW1 → Success
+FW1 → Success
+```
+
+The automation process may continue with the other devices.
+
+The event for R2 would be:
+
+```text
+ERROR | R2 | Connection failed
+```
+
+rather than `CRITICAL`.
+
+---
+
+# 5. CRITICAL
+
+```python
+logger.critical("Network Automation system cannot continue")
+```
+
+### Purpose
+
+`CRITICAL` represents a very serious failure that may prevent the application from continuing normally.
+
+It is the highest standard logging level.
+
+### Network Automation Examples
+
+```text
+CRITICAL | Network Automation system cannot continue
+CRITICAL | Configuration database unavailable
+CRITICAL | Required automation system unavailable
+CRITICAL | Logging system initialization failed
+```
+
+### Example
+
+Imagine that the automation application requires its central inventory database.
+
+If the database is unavailable:
+
+```text
+CRITICAL | Device inventory service unavailable
+```
+
+The application may not be able to safely continue.
+
+---
+
+# 📈 Logging Severity Hierarchy
+
+The five standard levels can be visualized as:
+
+```text
+                CRITICAL
+                   ▲
+                   │
+                 ERROR
+                   ▲
+                   │
+                WARNING
+                   ▲
+                   │
+                  INFO
+                   ▲
+                   │
+                 DEBUG
+```
+
+Another way to understand them:
+
+```text
+DEBUG
+│
+├── Detailed diagnostics
+│
+INFO
+│
+├── Normal application events
+│
+WARNING
+│
+├── Unexpected condition
+│
+ERROR
+│
+├── Operation failed
+│
+CRITICAL
+│
+└── Serious system/application failure
+```
+
+---
+
+# 🔢 Numeric Logging Values
+
+Python internally assigns a numeric value to each standard level:
+
+```text
+DEBUG      = 10
+INFO       = 20
+WARNING    = 30
+ERROR      = 40
+CRITICAL   = 50
+```
+
+The numeric values determine the severity ordering.
+
+For example:
+
+```python
+logging.DEBUG
+```
+
+returns:
+
+```text
+10
+```
+
+and:
+
+```python
+logging.ERROR
+```
+
+returns:
+
+```text
+40
+```
+
+Therefore:
+
+```text
+ERROR > WARNING > INFO > DEBUG
+```
+
+in terms of logging severity.
+
+---
+
+# 🎚️ Logging Level Configuration
+
+The configured logging level determines the minimum severity that will be processed.
+
+For example:
+
+```python
+logging.basicConfig(
+    level=logging.INFO
+)
+```
+
+means:
+
+```text
+DEBUG       ❌
+INFO        ✅
+WARNING     ✅
+ERROR       ✅
+CRITICAL    ✅
+```
+
+Because `INFO` is the configured threshold.
+
+---
+
+## Level = DEBUG
+
+```python
+logging.basicConfig(
+    level=logging.DEBUG
+)
+```
+
+Result:
+
+```text
+DEBUG       ✅
+INFO        ✅
+WARNING     ✅
+ERROR       ✅
+CRITICAL    ✅
+```
+
+All standard levels are allowed.
+
+---
+
+## Level = INFO
+
+```python
+logging.basicConfig(
+    level=logging.INFO
+)
+```
+
+Result:
+
+```text
+DEBUG       ❌
+INFO        ✅
+WARNING     ✅
+ERROR       ✅
+CRITICAL    ✅
+```
+
+---
+
+## Level = WARNING
+
+```python
+logging.basicConfig(
+    level=logging.WARNING
+)
+```
+
+Result:
+
+```text
+DEBUG       ❌
+INFO        ❌
+WARNING     ✅
+ERROR       ✅
+CRITICAL    ✅
+```
+
+---
+
+## Level = ERROR
+
+```python
+logging.basicConfig(
+    level=logging.ERROR
+)
+```
+
+Result:
+
+```text
+DEBUG       ❌
+INFO        ❌
+WARNING     ❌
+ERROR       ✅
+CRITICAL    ✅
+```
+
+---
+
+## Level = CRITICAL
+
+```python
+logging.basicConfig(
+    level=logging.CRITICAL
+)
+```
+
+Result:
+
+```text
+DEBUG       ❌
+INFO        ❌
+WARNING     ❌
+ERROR       ❌
+CRITICAL    ✅
+```
+
+---
+
+# 🧠 Important Rule
+
+The configured logging level should be understood as a **minimum severity threshold**.
+
+For example:
+
+```python
+level=logging.WARNING
+```
+
+does not mean:
+
+> "Only show WARNING messages."
+
+It means:
+
+> "Show WARNING and all messages with a higher severity."
+
+Therefore:
+
+```text
+WARNING
+ERROR
+CRITICAL
+```
+
+will be processed.
+
+---
+
+# 🌐 Network Automation Mapping
+
+A useful way to map the levels to Network Automation is:
+
+```text
+DEBUG
+   ↓
+Internal troubleshooting information
+
+INFO
+   ↓
+Normal device operations
+
+WARNING
+   ↓
+Unexpected but recoverable condition
+
+ERROR
+   ↓
+Specific device/operation failure
+
+CRITICAL
+   ↓
+Automation system failure
+```
+
+### Example Workflow
+
+```text
+Start Automation
+       │
+       ▼
+     INFO
+       │
+       ▼
+Connect to R1
+       │
+       ▼
+     DEBUG
+       │
+       ▼
+Connection successful
+       │
+       ▼
+      INFO
+       │
+       ▼
+High response time
+       │
+       ▼
+    WARNING
+       │
+       ▼
+Command execution fails
+       │
+       ▼
+     ERROR
+       │
+       ▼
+Automation engine unavailable
+       │
+       ▼
+   CRITICAL
+```
+
+---
+
+# ⚠️ Common Mistakes
+
+## Mistake 1 — Using ERROR for normal events
+
+Incorrect:
+
+```python
+logger.error("Connected to R1")
+```
+
+Correct:
+
+```python
+logger.info("Connected to R1")
+```
+
+---
+
+## Mistake 2 — Using CRITICAL for every error
+
+Incorrect:
+
+```python
+logger.critical("R2 connection failed")
+```
+
+If only R2 failed but the automation can continue with other devices, use:
+
+```python
+logger.error("R2 connection failed")
+```
+
+Reserve `CRITICAL` for serious failures affecting the overall application or its ability to continue safely.
+
+---
+
+## Mistake 3 — Using WARNING for actual failures
+
+Incorrect:
+
+```python
+logger.warning("Configuration command failed")
+```
+
+If the command actually failed:
+
+```python
+logger.error("Configuration command failed")
+```
+
+is more appropriate.
+
+---
+
+## Mistake 4 — Logging everything as INFO
+
+Incorrect:
+
+```python
+logger.info("Everything")
+```
+
+A professional application should distinguish between:
+
+```text
+Normal event
+Warning
+Failure
+Critical failure
+```
+
+This makes the logs easier to search, filter, and analyze.
+
+---
+
+# 🎯 Quick Reference
+
+```text
+DEBUG
+→ Detailed diagnostic information
+
+INFO
+→ Normal application events
+
+WARNING
+→ Unexpected condition that may require attention
+
+ERROR
+→ Operation failed
+
+CRITICAL
+→ Serious failure affecting the application/system
+```
+
+---
+
+# 🧪 Practical Example
+
+Consider this Network Automation workflow:
+
+```text
+1. Load YAML inventory
+2. Validate devices
+3. Connect to R1
+4. Execute command
+5. Detect slow response
+6. Configuration fails
+7. Automation engine crashes
+```
+
+Appropriate logging could be:
+
+```text
+INFO     | Loading YAML inventory
+INFO     | Validating devices
+INFO     | Connecting to R1
+DEBUG    | Connecting to 192.168.1.1:22
+INFO     | Connection successful
+WARNING  | R1 response time is high
+ERROR    | Configuration command failed
+CRITICAL | Automation engine stopped unexpectedly
+```
+
+This provides a chronological and severity-aware view of what happened.
+
+---
+
+# 🔑 Key Takeaways
+
+Remember:
+
+```text
+DEBUG
+↓
+Detailed troubleshooting information
+
+INFO
+↓
+Normal operations
+
+WARNING
+↓
+Potential problem
+
+ERROR
+↓
+Operation failure
+
+CRITICAL
+↓
+Serious application/system failure
+```
+
+And remember the numeric hierarchy:
+
+```text
+DEBUG      10
+INFO       20
+WARNING    30
+ERROR      40
+CRITICAL   50
+```
+
+The configured level acts as a **minimum severity threshold**:
+
+```text
+level = WARNING
+
+WARNING    ✅
+ERROR      ✅
+CRITICAL   ✅
+
+DEBUG      ❌
+INFO       ❌
+```
+
+This concept will become especially important when we start working with **Handlers and Formatters**, because we will be able to control exactly which events are sent to the console, files, or other destinations.
 
 ---
 
