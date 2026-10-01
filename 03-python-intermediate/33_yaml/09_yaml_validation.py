@@ -16,6 +16,24 @@ The validation process checks:
 
 The goal is to prevent invalid inventory data from
 reaching a Network Automation workflow.
+##########################################################        
+                     YAML
+                      │
+                      ▼
+               YAML Syntax
+                      │
+                      ▼
+               Python Parsing
+                      │
+                      ▼
+              Data Validation
+                      │
+               ┌──────┴──────┐
+               ▼             ▼
+             Valid         Invalid
+               │             │
+               ▼             ▼
+         Automation       Reject
 """
 
 from ipaddress import ip_address
