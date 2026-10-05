@@ -70,6 +70,15 @@ console_handler = logging.StreamHandler()
 # ---------------------------------------------------------
 # 4. Configure the Handler Level
 # ---------------------------------------------------------
+# console_handler.setLevel(logging.WARNING)
+# Logger
+#  │
+#  ├── DEBUG ──┐
+#  ├── INFO  ──┤
+#  ├── WARNING ───────► Handler ──► Terminal
+#  ├── ERROR   ───────► Handler ──► Terminal
+#  └── CRITICAL ──────► Handler ──► Terminal
+#
 # The handler will also accept DEBUG and higher messages.
 
 console_handler.setLevel(logging.DEBUG)
