@@ -1,1 +1,6 @@
-
+2026-10-06 08:07:55,143 | DEBUG | __main__ | Preparing connection to R1
+2026-10-06 08:07:55,143 | INFO | __main__ | Connecting to R1 at 192.168.1.1
+2026-10-06 08:07:55,143 | INFO | __main__ | Connection to R1 established successfully
+2026-10-06 08:07:55,143 | WARNING | __main__ | R1 response time is higher than expected
+2026-10-06 08:07:55,143 | ERROR | __main__ | Failed to execute configuration command on R1
+2026-10-06 08:07:55,143 | CRITICAL | __main__ | Network Automation system cannot continue
