@@ -7,7 +7,7 @@ multiple Handlers.
 We will configure:
 
 1. ConsoleHandler -> Terminal
-2. FileHandler    -> application.log
+2. FileHandler    -> multiple_handlers.log
 
 The same logging event will therefore be sent to
 both destinations.
