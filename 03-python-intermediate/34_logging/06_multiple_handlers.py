@@ -11,6 +11,18 @@ We will configure:
 
 The same logging event will therefore be sent to
 both destinations.
+
+                    Logger
+                 DEBUG Level
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+          ▼                     ▼
+   ConsoleHandler          FileHandler
+       INFO                  DEBUG
+          │                     │
+          ▼                     ▼
+      Terminal             multiple_handlers.log
 """
 
 import logging
