@@ -1,1 +1,11 @@
-
+2026-10-12 08:24:03,148 | INFO | network_automation.devices | Network Automation job started. Devices: 3
+2026-10-12 08:24:03,148 | INFO | network_automation.devices | Starting device processing: R1 (192.168.1.1)
+2026-10-12 08:24:03,148 | DEBUG | network_automation.devices | Checking inventory data for R1
+2026-10-12 08:24:03,148 | INFO | network_automation.devices | Device processing completed successfully: R1
+2026-10-12 08:24:03,148 | INFO | network_automation.devices | Starting device processing: R2 (192.168.1.2)
+2026-10-12 08:24:03,149 | DEBUG | network_automation.devices | Checking inventory data for R2
+2026-10-12 08:24:03,149 | INFO | network_automation.devices | Device processing completed successfully: R2
+2026-10-12 08:24:03,149 | INFO | network_automation.devices | Starting device processing: SW1 (192.168.1.10)
+2026-10-12 08:24:03,149 | DEBUG | network_automation.devices | Checking inventory data for SW1
+2026-10-12 08:24:03,149 | INFO | network_automation.devices | Device processing completed successfully: SW1
+2026-10-12 08:24:03,149 | INFO | network_automation.devices | Network Automation job completed.
