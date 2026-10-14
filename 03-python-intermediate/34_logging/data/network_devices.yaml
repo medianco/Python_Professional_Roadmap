@@ -1,1 +1,76 @@
+inventory:
+  name: Production Network
+  environment: production
 
+devices:
+
+  - hostname: R1
+    management:
+      ip: 192.168.1.1
+      protocol: ssh
+      port: 22
+
+    platform:
+      vendor: Cisco
+      device_type: router
+      os: IOS-XE
+
+    location:
+      site: Data Center
+      rack: R01
+
+    status: active
+
+
+  - hostname: R2
+    management:
+      ip: 192.168.1.2
+      protocol: ssh
+      port: 22
+
+    platform:
+      vendor: Cisco
+      device_type: router
+      os: IOS-XE
+
+    location:
+      site: Branch 1
+      rack: R01
+
+    status: active
+
+
+  - hostname: SW1
+    management:
+      ip: 192.168.1.10
+      protocol: ssh
+      port: 22
+
+    platform:
+      vendor: Cisco
+      device_type: switch
+      os: IOS
+
+    location:
+      site: Data Center
+      rack: R02
+
+    status: active
+
+
+  - hostname: FW1
+    management:
+      ip: 192.168.1.254
+      protocol: https
+      port: 443
+
+    platform:
+      vendor: Fortinet
+      device_type: firewall
+      os: FortiOS
+
+    location:
+      site: Data Center
+      rack: R03
+
+    status: active
