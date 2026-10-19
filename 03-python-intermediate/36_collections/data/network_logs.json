@@ -1,1 +1,53 @@
 
+[
+    {
+        "hostname": "R1",
+        "event_type": "BGP_NEIGHBOR_DOWN",
+        "severity": "CRITICAL"
+    },
+    {
+        "hostname": "R1",
+        "event_type": "INTERFACE_DOWN",
+        "severity": "HIGH"
+    },
+    {
+        "hostname": "SW1",
+        "event_type": "INTERFACE_DOWN",
+        "severity": "HIGH"
+    },
+    {
+        "hostname": "FW1",
+        "event_type": "LOGIN_FAILURE",
+        "severity": "MEDIUM"
+    },
+    {
+        "hostname": "R2",
+        "event_type": "BGP_NEIGHBOR_DOWN",
+        "severity": "CRITICAL"
+    },
+    {
+        "hostname": "FW1",
+        "event_type": "LOGIN_FAILURE",
+        "severity": "HIGH"
+    },
+    {
+        "hostname": "SW1",
+        "event_type": "CONFIG_CHANGE",
+        "severity": "INFO"
+    },
+    {
+        "hostname": "R1",
+        "event_type": "INTERFACE_DOWN",
+        "severity": "HIGH"
+    },
+    {
+        "hostname": "FW1",
+        "event_type": "LOGIN_FAILURE",
+        "severity": "MEDIUM"
+    },
+    {
+        "hostname": "R2",
+        "event_type": "BGP_NEIGHBOR_DOWN",
+        "severity": "CRITICAL"
+    }
+]
