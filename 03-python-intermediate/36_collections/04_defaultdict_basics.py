@@ -1,4 +1,3 @@
-
 """
 Lesson 36.4 — defaultdict Basics
 
