@@ -1,1 +1,37 @@
-
+[
+    {
+        "hostname": "R1",
+        "management_ip": "192.168.1.1",
+        "vendor": "Cisco",
+        "device_type": "Router",
+        "location": "HQ"
+    },
+    {
+        "hostname": "R2",
+        "management_ip": "192.168.1.2",
+        "vendor": "Cisco",
+        "device_type": "Router",
+        "location": "Branch"
+    },
+    {
+        "hostname": "SW1",
+        "management_ip": "192.168.1.3",
+        "vendor": "Cisco",
+        "device_type": "Switch",
+        "location": "HQ"
+    },
+    {
+        "hostname": "J1",
+        "management_ip": "192.168.1.4",
+        "vendor": "Juniper",
+        "device_type": "Router",
+        "location": "Branch"
+    },
+    {
+        "hostname": "FW1",
+        "management_ip": "192.168.1.5",
+        "vendor": "Fortinet",
+        "device_type": "Firewall",
+        "location": "HQ"
+    }
+]
