@@ -1,1 +1,38 @@
+[
+    {
+        "device": "BR-R1",
+        "event_type": "BGP_NEIGHBOR_DOWN",
+        "severity": "CRITICAL"
+    },
+    {
+        "device": "DC-R1",
+        "event_type": "INTERFACE_DOWN",
+        "severity": "HIGH"
+    },
+    {
+        "device": "DC-J1",
+        "event_type": "BGP_NEIGHBOR_DOWN",
+        "severity": "CRITICAL"
+    },
+    {
+        "device": "DC-FW1",
+        "event_type": "LOGIN_FAILURE",
+        "severity": "HIGH"
+    },
+    {
+        "device": "BR-R1",
+        "event_type": "LOGIN_FAILURE",
+        "severity": "MEDIUM"
+    },
+    {
+        "device": "DC-R1",
+        "event_type": "BGP_NEIGHBOR_DOWN",
+        "severity": "CRITICAL"
+    },
+    {
+        "device": "DC-J1",
+        "event_type": "INTERFACE_DOWN",
+        "severity": "HIGH"
+    }
+]
 
