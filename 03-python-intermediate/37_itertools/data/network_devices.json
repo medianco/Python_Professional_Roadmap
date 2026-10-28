@@ -1,1 +1,27 @@
-
+[
+    {
+        "hostname": "BR-R1",
+        "vendor": "Cisco",
+        "enabled": true
+    },
+    {
+        "hostname": "BR-SW1",
+        "vendor": "Cisco",
+        "enabled": false
+    },
+    {
+        "hostname": "DC-R1",
+        "vendor": "Cisco",
+        "enabled": true
+    },
+    {
+        "hostname": "DC-J1",
+        "vendor": "Juniper",
+        "enabled": true
+    },
+    {
+        "hostname": "DC-FW1",
+        "vendor": "Fortinet",
+        "enabled": true
+    }
+]
